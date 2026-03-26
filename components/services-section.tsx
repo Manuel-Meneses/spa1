@@ -41,7 +41,7 @@ export function ServicesSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-2xl">
             <span className="text-sm font-semibold text-primary uppercase tracking-widest">
-              Experiencia MKM
+              Experiencia Aura
             </span>
             <h2 className="mt-4 text-4xl font-medium text-foreground md:text-5xl tracking-tight text-balance">
               Nuestros Tratamientos
@@ -58,7 +58,6 @@ export function ServicesSection() {
               key={index}
               className="group relative p-8 rounded-[2rem] bg-card hover:bg-white transition-all duration-500 shadow-sm hover:shadow-xl border border-border/50 overflow-hidden cursor-pointer"
             >
-              {/* Círculo decorativo de fondo */}
               <div className="absolute -right-10 -top-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors duration-500" />
               
               <div className="relative z-10 flex flex-col h-full">

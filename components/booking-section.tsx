@@ -31,7 +31,9 @@ export function BookingSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const whatsappMessage = `¡Hola! Quiero reservar un turno 💅✨\n\n*Nombre:* ${formData.name}\n*Teléfono:* ${formData.phone}\n*Servicio:* ${services.find(s => s.value === formData.service)?.label || formData.service}\n*Fecha preferida:* ${formData.date}\n${formData.message ? `*Comentarios:* ${formData.message}` : ""}`
-    const whatsappNumber = "5403512382028"
+    
+    // Número ficticio para la plantilla
+    const whatsappNumber = "5491112345678"
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`, "_blank")
   }
 

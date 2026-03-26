@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Sparkles, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 export function HeroSection() {
   const scrollToBooking = () => {
@@ -14,11 +14,10 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-[100svh] flex items-center overflow-hidden">
-      {/* Background Image with softer gradient */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-spa.jpg"
-          alt="Tratamiento de belleza en MKM Estética"
+          alt="Tratamiento de belleza en nuestro exclusivo salón"
           fill
           className="object-cover scale-105 animate-in fade-in duration-1000 slide-in-from-bottom-2"
           priority
@@ -26,9 +25,16 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/20" />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 w-full px-6 py-20 md:px-12 lg:px-20 mt-10">
         <div className="max-w-2xl animate-in fade-in slide-in-from-left-8 duration-1000 delay-150 fill-mode-both">
+          
+          <div className="inline-flex items-center gap-2 rounded-full bg-background/50 backdrop-blur-sm border border-primary/20 px-4 py-2 text-sm font-medium text-primary mb-8 shadow-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            <span>Atención personalizada en nuestro exclusivo salón</span>
+          </div>
 
           <h1 className="text-5xl font-medium leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-7xl text-balance">
             El tiempo que te dedicás, <span className="text-primary italic font-light">elevado al máximo.</span>

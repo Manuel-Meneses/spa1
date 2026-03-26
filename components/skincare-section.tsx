@@ -29,10 +29,11 @@ const products = [
 ]
 
 export function SkincareSection() {
-  const handleConsult = (productName: string) => {
+const handleConsult = (productName: string) => {
     const message = `¡Hola! Me interesa consultar por el producto de skincare: *${productName}*. ¿Tienen stock? ✨`
-    window.open(`https://wa.me/5493512382028?text=${encodeURIComponent(message)}`, "_blank")
-  }
+    // Número ficticio para la plantilla
+    window.open(`https://wa.me/5491112345678?text=${encodeURIComponent(message)}`, "_blank")
+  } 
 
   return (
     <section id="skincare" className="py-24 px-6 md:px-12 lg:px-20 bg-background overflow-hidden relative">

@@ -10,9 +10,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'MKM | Profesionales en Estética Integral - Cofico, Córdoba',
-  description: 'Cosmetología, pedicuría, manicura, peluquería, cejas, pestañas y estética avanzada en Bedoya 143, Cofico. Reservá tu turno online.',
-  keywords: ['estética integral', 'cosmetología', 'manicura', 'pedicuría', 'peluquería', 'cejas', 'pestañas', 'Cofico', 'Córdoba'],
+  title: 'Aura Beauty | Profesionales en Estética Integral',
+  description: 'Cosmetología, pedicuría, manicura, peluquería, cejas, pestañas y estética avanzada en nuestro exclusivo salón. Reservá tu turno online.',
+  keywords: ['estética integral', 'cosmetología', 'manicura', 'pedicuría', 'peluquería', 'cejas', 'pestañas', 'salón de belleza', 'spa'],
   icons: {
     icon: [
       {

@@ -41,17 +41,17 @@ export function Header() {
       )}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo Ficticio */}
         <a 
           href="#" 
-          className="flex items-center gap-2 text-xl font-semibold text-foreground"
+          className="flex items-center gap-2 text-xl font-semibold text-foreground tracking-widest"
           onClick={(e) => {
             e.preventDefault()
             window.scrollTo({ top: 0, behavior: "smooth" })
           }}
         >
           <Sparkles className="h-6 w-6 text-primary" />
-          <span>MKM</span>
+          <span>AURA<span className="font-light">BEAUTY</span></span>
         </a>
 
         {/* Desktop Navigation */}
