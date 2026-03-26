@@ -8,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import { motion } from "framer-motion"
 
 const galleryImages = [
   {
@@ -67,31 +68,35 @@ export function GallerySection() {
           </Carousel>
         </div>
 
-        {/* Desktop Staggered Grid (Diseño Editorial Asimétrico) */}
-        <div className="hidden md:grid md:grid-cols-4 gap-6 items-start">
+      <div className="hidden md:grid md:grid-cols-4 gap-6 items-start px-4">
           {galleryImages.map((image, index) => (
-            <div 
+            <motion.div 
               key={index}
-              // El secreto del diseño orgánico: Las columnas impares bajan, las pares suben.
-              className={`group relative rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer border border-border/50 ${
-                index % 2 === 0 ? "aspect-[3/4] md:translate-y-0" : "aspect-[4/5] md:translate-y-12"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              // Magia aquí: Arcos (rounded-t-full) y asimetría
+              className={`group relative overflow-hidden shadow-2xl transition-all duration-700 cursor-pointer ${
+                index % 2 === 0 
+                  ? "aspect-[1/1.5] rounded-t-full rounded-b-xl md:translate-y-0" 
+                  : "aspect-[1/1.6] rounded-t-full rounded-b-xl md:translate-y-16"
               }`}
             >
               <Image
                 src={image.src}
                 alt={image.alt}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="object-cover group-hover:scale-105 transition-transform duration-[1.5s] ease-out"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F14]/90 via-[#0B0F14]/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className="absolute bottom-0 left-0 w-full p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                <div className="h-px w-8 bg-primary mb-3 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                <span className="text-card font-medium text-lg tracking-wide block">{image.title}</span>
+              <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out text-center">
+                <span className="text-white font-serif italic text-2xl block">{image.title}</span>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </div> 
       </div>
     </section>
   )

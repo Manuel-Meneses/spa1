@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { motion } from "framer-motion"
 
 export function HeroSection() {
   const scrollToBooking = () => {
@@ -13,52 +13,50 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-[100svh] flex items-center overflow-hidden">
+    <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+      {/* Imagen inmersiva con overlay sutil */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-spa.jpg"
-          alt="Tratamiento de belleza en nuestro exclusivo salón"
+          // Esta es la ruta a la imagen que acabás de guardar en public/images/
+          src="/images/imagen-1.jpg"
+          alt="Tratamiento de belleza premium en nuestra clínica de estética avanzada"
           fill
-          className="object-cover scale-105 animate-in fade-in duration-1000 slide-in-from-bottom-2"
+          className="object-cover animate-in fade-in duration-[2000ms] scale-105"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/20" />
+        {/* Overlay negro al 50% para que el header y el texto blanco sean legibles */}
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F14] via-transparent to-[#0B0F14]/60" />
       </div>
 
-      <div className="relative z-10 w-full px-6 py-20 md:px-12 lg:px-20 mt-10">
-        <div className="max-w-2xl animate-in fade-in slide-in-from-left-8 duration-1000 delay-150 fill-mode-both">
-          
-          <div className="inline-flex items-center gap-2 rounded-full bg-background/50 backdrop-blur-sm border border-primary/20 px-4 py-2 text-sm font-medium text-primary mb-8 shadow-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            <span>Atención personalizada en nuestro exclusivo salón</span>
-          </div>
+      <div className="relative z-10 w-full px-6 flex flex-col items-center text-center mt-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-4xl flex flex-col items-center"
+        >
+          <span className="uppercase tracking-[0.4em] text-[#C6A16B] text-xs font-medium mb-8 block">
+            Clínica de Estética Avanzada
+          </span>
 
-          <h1 className="text-5xl font-medium leading-[1.1] tracking-tight text-foreground md:text-6xl lg:text-7xl text-balance">
-            El tiempo que te dedicás, <span className="text-primary italic font-light">elevado al máximo.</span>
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-serif text-white mb-8 leading-[1.1] tracking-tight">
+            El arte de tu <br className="hidden md:block" />
+            <span className="italic text-[#C6A16B] font-light">bienestar absoluto.</span>
           </h1>
 
-          <p className="mt-6 text-lg text-muted-foreground md:text-xl leading-relaxed max-w-lg font-light">
-            Cosmetología, pedicuría, cejas y estética avanzada. Vení a relajarte, nosotras nos encargamos de resaltar tu mejor versión.
+          <p className="text-lg md:text-xl text-white/70 max-w-2xl font-light leading-relaxed mb-12">
+            Un santuario dedicado a la estética avanzada y la relajación. Elevamos tu esencia con tratamientos de vanguardia y atención hiper-personalizada.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <Button 
-              onClick={scrollToBooking}
-              size="lg" 
-              className="h-14 px-8 text-base font-medium rounded-full shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 group w-full sm:w-auto"
-            >
-              Reservar mi turno
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            
-            <a href="#servicios" className="text-sm font-medium text-foreground hover:text-primary transition-colors px-4 py-2 hidden sm:block">
-              Descubrir tratamientos
-            </a>
-          </div>
-        </div>
+          <Button 
+            onClick={scrollToBooking}
+            size="lg" 
+            className="h-14 px-10 text-sm tracking-widest uppercase bg-transparent text-white border border-white/30 hover:bg-white hover:text-black rounded-none transition-all duration-500"
+          >
+            Agendar Experiencia
+          </Button>
+        </motion.div>
       </div>
     </section>
   )

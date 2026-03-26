@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Sparkles } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navigation = [
@@ -41,26 +41,31 @@ export function Header() {
       )}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo Ficticio */}
+        {/* Logo Ficticio con color dinámico */}
         <a 
           href="#" 
-          className="flex items-center gap-2 text-xl font-semibold text-foreground tracking-widest"
+          className={cn(
+            "flex items-center gap-2 text-xl font-semibold tracking-widest transition-colors duration-300",
+            isScrolled ? "text-black" : "text-white"
+          )}
           onClick={(e) => {
             e.preventDefault()
             window.scrollTo({ top: 0, behavior: "smooth" })
           }}
         >
-          <Sparkles className="h-6 w-6 text-primary" />
           <span>AURA<span className="font-light">BEAUTY</span></span>
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation con color dinámico */}
         <nav className="hidden md:flex items-center gap-8">
           {navigation.map((item) => (
             <button
               key={item.name}
               onClick={() => scrollToSection(item.href)}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className={cn(
+                "text-sm font-medium transition-colors duration-300 hover:opacity-70",
+                isScrolled ? "text-black" : "text-white"
+              )}
             >
               {item.name}
             </button>
@@ -73,9 +78,12 @@ export function Header() {
           </Button>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button con color dinámico */}
         <button
-          className="md:hidden p-2 text-foreground"
+          className={cn(
+            "md:hidden p-2 transition-colors duration-300",
+            isScrolled ? "text-black" : "text-white"
+          )}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
         >
@@ -87,7 +95,7 @@ export function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu (este no hace falta que cambie de color porque tiene fondo sólido) */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-card/98 backdrop-blur-md shadow-lg">
           <nav className="flex flex-col p-6 gap-4">
